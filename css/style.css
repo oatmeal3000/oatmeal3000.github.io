@@ -544,6 +544,8 @@ a {
   -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
+  color:#666666;
+  font-weight:bold;
 }
 #header .header-menu li {
   cursor: default;
