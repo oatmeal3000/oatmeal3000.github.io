@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>大脑空间</title>
+    <link href="styles/style.css" rel="stylesheet" />
+
+    <script src="scripts/libs/jquery-1.11.1.min.js"></script>
+    <script src="scripts/libs/kinetic-v5.1.0.min.js"></script>
+    <script src="scripts/libs/raphael-min.js"></script>
+
+    <script src="scripts/ship-game.js"></script>
+    <script src="scripts/numbers-game.js"></script>
+    <script src="scripts/graph-drawer.js"></script>
+    <script src="scripts/engine-game.js"></script>
+    <script src="scripts/creator-game.js"></script>
+</head>
+<body>
+    <div id="game-wrapper"></div>
+    <div id="start-game-menu-container">
+        <h1>大脑空间</h1>
+    
+                <font color="white">  
+                    <p>'w,s,d,a' 或 方向键  - 控制飞船移动</p>
+                    <p>
+                        在右边找到算式，点击和它相同颜色的答案给飞船加油
+                    </p> </font>
+        
+        <ul class="start-game-menu-list">
+       <!--     <li><a href="#" data-difficulty="1">简单</a></li> -->
+            <li><a href="#" data-difficulty="2">开始</a></li>
+       <!--    <li><a href="#" data-difficulty="3">困难</a></li> 
+            <li><a href="#">帮助</a>
+            </li> -->
+        </ul>
+        <footer>Team "Ermac" Telerik Academy 2014. Chinesized by Fundream.cn</footer>
+    </div>
+    <div id="game-over"></div>
+</body>
+</html>

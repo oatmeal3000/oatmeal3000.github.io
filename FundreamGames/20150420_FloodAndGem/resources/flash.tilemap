@@ -1,0 +1,71 @@
+' This is a comment.
+' Each map section starts with a listing of coordinate axes.
+'   The first axis is stepped by columns in this file.
+'   The second axis is stepped by lines in this file.
+'   The third axis is stepped by "$", which must occur at the end of a line or on a line by itself.
+' After the axes, the origin coordinates are given, always in xyz order.
+' After the first line, each character denotes a tile type. Space means "no change", not "empty space" -- that's "`".
+' A blank line indicates the start of a new map section.
+'   Whitespace on a line matters!
+
+' -------------------------------------------------------------------------
+' Ground
+xyz 0 0 0
+................
+................
+................
+................
+................
+................
+................
+................
+................
+................$
+`tt```v`v```````
+tT``########`666
+t````#######`6W#
+```/###W###\`6W6
+````##WWW##``^6^
+`p`/###W###\``p`
+``p/#######\p`p`
+````#######`````
+`P````^`^```p
+````````````````$
+````````````````
+`````/dddv`#####
+`````#####d^`^`^
+`````###W#\`````
+`````####5``````
+`````5###5\`````
+`````55555``````
+````3`^`^```````
+````````````````
+````````````````$
+````````````````
+````````````````
+``````vvv``````2
+`````/W#W\``````
+`````44W#```````
+`````/W4W\``````
+``````^^^```````
+````````````````
+````````````````
+````````````````$
+````````````````
+````````````````
+````````````````
+```````v````````
+``````/W\```````
+``````.^````````
+````````p```````
+````````````````
+````````````````
+````````````````$
+````````````````
+````````````````
+````````````````
+``````X`````````
+````````1```````
+
+
+

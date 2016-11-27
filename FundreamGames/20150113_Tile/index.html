@@ -1,0 +1,188 @@
+<html>
+  <title>CI272 Final Project - Tile Game - by Kevin Reid</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, target-densitydpi=device-dpi" />
+  <style>
+    /* --- layout --- */
+    html {
+      margin: 0;
+      border: none;
+      padding: 0;
+      font-family: sans-serif;
+      background: black;
+    }
+    body {
+      margin: 0;
+      border: none;
+      padding: 0;
+    }
+    
+    /* Our DPI overrides cause the Android browser to go to generic buttons,
+       which results in black-on-black text. Fixing: */
+    button {
+      background: white;
+      color: black;
+    }
+
+    .viewport {
+      z-index: 0;
+      /*margin-right: 13em; -- for sidebar, now removed */
+      height: 100%;
+      background: black;
+      color: white;
+    }
+    
+    .playfield { 
+      display: table; /* useful for not-loaded panel */
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: none;
+      padding: 0;
+    }
+    
+    .overlay {
+      position: fixed;
+
+      /* Note: According to http://www.w3.org/TR/CSS2/visuren.html#z-index,
+         that .viewport has a z-index of 0 ought to make this and that a
+         separate stacking context from the contents of the viewport, but
+         that doesn't seem to work that way. So this z-index is very large
+         to get in front of all of the tiles. */
+      z-index: 100000000;
+
+      padding: .3em;
+
+      background: black;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      -webkit-box-shadow: inset 0 0 .3em .0em white, 0 0 .3em .0em white;
+      -moz-box-shadow: inset 0 0 .3em .0em white, 0 0 .3em .0em white;
+    }
+    
+    .inventory-frame {
+      left: .7em;
+      bottom: .7em;
+    }
+    .inventory {
+      display: block;
+      text-align: center;
+      height: 4em;
+      margin-top: -10%; /* kludge for images */
+    }
+    .inventory img {
+      display: inline;
+      height: 100%;
+    }
+    
+    .instructions {
+      right: .7em;
+      top: .7em;
+      min-width: 8em;
+      max-width: 15em;
+      width: 30%;
+    }
+    .instructions p { margin: 0; } /* only one */
+    
+    .not-loaded-panel {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+    
+    .dircontrols-overlay {
+      right: .7em;
+      bottom: .7em;
+      margin: auto;
+    }
+    #control-instructions {
+      text-align: right;
+      max-width: 13em;
+    }
+    #control-instructions button {
+      font-size: 1.6em;
+    }
+    .dircontrols-buttons {
+      border-collapse: collapse;
+    }
+    .dircontrols-buttons td {
+      margin: 0;
+      padding: 0;
+    }
+    .dircontrols-buttons button {
+      font-size: 300%;
+
+      margin: -0.2em;
+      background: black;
+      color: white;
+      border: .06em solid gray;
+      -webkit-border-radius: 1em;
+      -moz-border-radius: 1em;
+      width: 2em;
+      height: 2em;
+    }
+    
+  </style>
+  <script type="text/javascript" src="IVector.js"></script>
+  <script type="text/javascript" src="Tile.js"></script>
+  <script type="text/javascript" src="World.js"></script>
+  <script type="text/javascript" src="GameState.js"></script>
+  <script type="text/javascript" src="GameView.js"></script>
+  <script type="text/javascript" src="Map.js"></script>
+  <script>
+    var gameState = new GameState(gameMap);
+    var gameView;
+    window.onresize = function () { 
+      if (gameView != undefined) gameView.onresize();
+    };
+  </script>
+</head>
+<body onload="
+  gameView = new GameView(gameState, document.getElementById('playfield'), document.getElementById('viewport'), document.getElementById('state'), document.getElementById('inventory'));
+  document.onkeydown = gameView.onkeydown;
+">
+
+<!-- TODO: restart and about commands -->
+<div id="viewport" class="viewport">
+  <div id="playfield" class="playfield">
+    <div class="not-loaded-panel">
+    <p><img src="Resources/Rock.png"></p>
+    <p>Game not loaded.</p>
+    </div>
+  </div>
+</div>
+<div class="overlays">
+  <div class="inventory-frame overlay">
+    You have:<br>
+    <div id="inventory" class="inventory"></div>
+  </div>
+  <div class="overlay instructions">
+    <p id="state"></p>
+  </div>
+  <div class="overlay dircontrols-overlay" id="dircontrols-overlay">
+    <div id="control-instructions">
+      Use the arrow keys to move — or would you like some touch buttons?<br>
+      <button onclick="
+        document.getElementById('control-buttons').style.display='table';
+        document.getElementById('control-instructions').style.display='none';
+      ">Yes
+      </button>
+      <button onclick="
+        document.getElementById('dircontrols-overlay').style.display='none';
+      ">No
+      </button>
+    </div>
+    <table id="control-buttons" class="dircontrols-buttons" style="display:none;">
+      <tr><td><td><button onclick="gameView.playerMove(0, -1, 0)">&uarr;</button><td>
+      <tr><td>    <button onclick="gameView.playerMove(-1, 0, 0)">&larr;</button>
+          <td>
+          <td>    <button onclick="gameView.playerMove(+1, 0, 0)">&rarr;</button>
+      <tr><td><td><button onclick="gameView.playerMove(0, +1, 0)">&darr;</button><td>
+    </table> 
+  </div>   
+</div>
+
+<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253362890'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1253362890' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body></html>

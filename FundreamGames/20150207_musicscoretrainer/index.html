@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<title>Music score trainer</title>
+		<meta name="description" content="Learn to read music score with these awesome games!">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5, user-scalable=0">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+		<script src="./jquery-2.1.0.min.js"></script>
+		<script src="./jquery.mobile-1.4.4.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		
+		<meta property="og:image" content="http://www.natbrasil.org/wp-content/uploads/2014/05/piano.png" />
+		<meta property="og:title" content="Music score trainer" />
+		<meta property="og:description" content="Learn to read music score by playing a fun game!" />
+		<meta property="og:type" content="website" />
+		
+		<meta property="fb:app_id" content="343991302439932">
+		
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-52254492-1', 'michalpaszkiewicz.co.uk');
+		  ga('send', 'pageview');
+		
+		</script>
+	</head>
+	<body>
+	<div class="scoreBoard"></div>
+	<div class="settings-container">
+		<div class="settings-cover"></div>
+		<div class="settings-box">
+			<div class="info-line">关卡: <div class="level">1</div></div>
+			<div class="info-line">谱号 (Clef): <div class="current-clef"> Treble</div></div>
+			<div class="info-lint">模式: <div class="current-game-mode">随机音符</div></div>
+			<button onclick="runGame(); toggleMenu();">开始!</button>
+			<button class="switch-mode hidden" onclick="switchMode();">切换游戏模式</button>
+			<button class="switch-clef hidden" onclick="switchClef();">切换谱号</button>
+			<button class="synth-button hidden" onclick="toggleSynth();">改变合成器</button>
+			<div class="info-line">金币: <div class="coins">0</div></div>
+			<button onclick="toggleShop();">商店</button>
+			<button onclick="factoryReset();">重置游戏</button>
+	<!--		<button onclick="window.location='http://www.michalpaszkiewicz.co.uk/'">By Michal Paszkiewicz</button> 
+			<div class="facebook-container">
+				<div
+				  class="fb-like"
+				  data-share="true"
+				  data-width="450"
+				  data-show-faces="true">
+				</div>
+			</div> -->
+		</div>
+		<div class="shop hidden">
+			现有金币: <div class="coins">0</div>
+			<div class="products">
+				<div class="product" id="skip-level" title="Cost: 100">跳过关卡
+					<div class="product-cost">100</div>
+				</div>
+				<div class="product" id="bass-clef" title="Cost: 300">低音谱号
+					<div class="product-cost">300</div>
+				</div>
+				<div class="product" id="synth" title="Cost: 2000">合成器
+					<div class="product-cost">2000</div>
+				</div>
+				<div class="product" id="real-tunes" title="Cost:1000">真正曲调
+					<div class="product-cost">1000</div>
+				</div>
+			</div>
+			<button onclick="toggleShop();">关闭</button>
+		</div>
+	</div>
+		<div id="main-container">
+			<div class="clef" style=""></div>
+			<div class="game-container"></div>
+			<div id="keyboard">
+				<div class="whitekey key" id="c"></div><div class="blackkey key" id="c#"></div
+				><div class="whitekey key" id="d"></div><div class="blackkey key" id="d#"></div
+				><div class="whitekey key" id="e"></div
+				><div class="whitekey key" id="f"></div><div class="blackkey key" id="f#"></div
+				><div class="whitekey key" id="g"></div><div class="blackkey key" id="g#"></div
+				><div class="whitekey key" id="a"></div><div class="blackkey key" id="a#"></div
+				><div class="whitekey key" id="b"></div>
+			</div>
+			<div id="whole-keyboard">
+				<div class="octave" id="o1">
+					<div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div>
+				</div>
+				<div class="octave" id="o2">
+					<div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div>
+				</div>
+				<div class="octave selected" id="o3">
+					<div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div>
+				</div>
+				<div class="octave" id="o4">
+					<div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div><div class="blackkey"></div
+					><div class="whitekey"></div>
+				</div>
+			</div>
+			<button class="toggle-pause" onclick="togglePause()">暂停</button>
+			<button class="end-game" onclick="stopGame()">回到菜单</button>
+			<div class="push clearfix"></div>
+		</div>
+		<script src="sound.js"></script>
+		<script src="script.js"></script>
+
+		<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253362890'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1253362890' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '343991302439932',
+	      xfbml      : true,
+	      version    : 'v2.1'
+	    });
+	  };
+	
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+</html>

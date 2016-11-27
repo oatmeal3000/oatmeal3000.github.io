@@ -1,0 +1,105 @@
+<html>
+<head>
+  <title>洪水与宝石--Fundream.cn</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, target-densitydpi=device-dpi" />
+  <link type="text/css" href="style.css" rel="stylesheet"/>
+  <script type="text/javascript" src="IVector.js"></script>
+  <script type="text/javascript" src="Tile.js"></script>
+  <script type="text/javascript" src="World.js"></script>
+  <script type="text/javascript" src="GameState.js"></script>
+  <script type="text/javascript" src="GameView.js"></script>
+  <script type="text/javascript" src="Map5.js"></script>
+  <script>
+    gameState = new GameState(gameMap);
+    var gameView;
+    window.onresize = function () { 
+      if (gameView != undefined) gameView.onresize();
+    };
+    var strUrl=window.location.href;
+    var arrUrl=strUrl.split("/");
+    var strPage=arrUrl[arrUrl.length-1]; 
+    cookie_name = 'time_' + strPage;
+    level_name = 'level_' + strPage;
+   function saveEverything(){
+      oldPos = clone(gameState.world.getPlayerPos()); 
+      oldTileArray=[];extend(oldTileArray, gameState.world.getTileArray()); 
+      oldInventory=[];extend(oldInventory, gameState.getInventory());
+      oldInventoryView = IdInventory.innerHTML;
+   }
+   function restoreScene(){  
+      delete gameMap;    delete gameState;  gameView=null;delete gameView;
+      IdInventory.innerHTML = oldInventoryView; IdPlayfield.innerHTML = ""; 
+     
+      gameMap = new World(16, 10, 9, oldTileArray,oldPos);
+      gameState = new GameState(gameMap, oldPos.dump(), oldInventory); 
+      gameView = new GameView(gameState, IdPlayfield, IdViewport, IdState, IdInventory);
+   }
+    
+  </script>
+</head>
+<body style="background-image:url(resources/nightsky.jpg);background-size:100% 200%" onload="
+   IdPlayfield = document.getElementById('playfield');
+    IdViewport = document.getElementById('viewport');
+    IdState = document.getElementById('state');
+    IdInventory = document.getElementById('inventory');
+    IdImgBack = document.getElementById('imgBack');
+    gameView = new GameView(gameState, IdPlayfield, IdViewport, IdState, IdInventory);
+ document.onkeydown = gameView.onkeydown;
+  modifyTime();
+  timeCount();
+">
+
+
+<div id="viewport" class="viewport">
+  <div id="playfield" class="playfield">
+    <div class="not-loaded-panel">
+    <p><img src="resources/Rock.png"></p>
+    <p>加载中.</p>
+    </div>
+  </div>
+</div>
+<div class="overlays">
+  <div class="inventory-frame overlay">
+    <span id="time_used"></span> <br>
+    <div id="inventory" class="inventory"></div>
+  </div>
+  <div class="overlay instructions" id="hints">
+    <p id="state"></p>
+  </div>
+  
+  <div class="panel dircontrols-overlay" id="dircontrols-overlay">
+    <table id="control-buttons" class="dircontrols-buttons">
+      <tr><td><td><button onclick="saveEverything();gameView.playerMove(0, -1, 0)">&uarr;</button><td>
+      <tr><td>    <button onclick="saveEverything();gameView.playerMove(-1, 0, 0)">&larr;</button>
+          <td>
+          <td>    <button onclick="saveEverything();gameView.playerMove(+1, 0, 0)">&rarr;</button>
+      <tr><td><td><button onclick="saveEverything();gameView.playerMove(0, +1, 0)">&darr;</button><td>
+    </table> 
+  </div> 
+
+  
+    <div class="indicator-overlay" id="indicator-overlay">
+      <ul><li><a href="index.html"><img src="resources/home.png" /></a></li> 
+        <li><a href="javascript:document.location.reload();"><img src="resources/clock.png" /></a></li>
+      </ul>
+  </div>
+
+</div>
+    <audio id="start" autoplay="autoplay" loop="true">
+      <source src="music/game_music.ogg"  type="audio/ogg">
+	  <source src="music/game_music.mp3"  type="audio/mp3">
+    </audio>
+    <audio id="win" >
+      <source src="music/win.ogg"  type="audio/ogg">
+	   <source src="music/win.mp3"  type="audio/mp3">
+    </audio>
+    <audio id="fail" >
+      <source src="music/fail.ogg"  type="audio/ogg">
+	  <source src="music/fail.mp3"  type="audio/mp3">
+    </audio>
+    <audio id="getgem" >
+      <source src="music/ling.ogg"  type="audio/ogg">
+	  <source src="music/ling.mp3"  type="audio/mp3">
+    </audio>
+</body></html>

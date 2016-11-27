@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+ <html xml:lang="zh-CN" lang="zh-CN">
+	<head>
+		<title>六角转盘</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
+		<meta property="og:site_name" content="六角转盘" />
+		<meta property="og:title" content="Hextris" />
+		<meta property="og:type" content="website" />
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
+		<script type = 'text/javascript' src="vendor/hammer.min.js"></script>
+		<script type = 'text/javascript' src="vendor/jsonfn.min.js"></script>
+		<script type = 'text/javascript' src="vendor/keypress.min.js"></script>
+		<script type = 'text/javascript' src="vendor/jquery.js"></script>
+		<script type = 'text/javascript' src="js_v9/save-state.js"></script>
+		<script type = 'text/javascript' src="js_v9/view.js"></script>
+		<script type = 'text/javascript' src="js_v9/wavegen.js"></script>
+		<script type = 'text/javascript' src="js_v9/math.js"></script>
+		<script type = 'text/javascript' src="js_v9/Block.js"></script>
+		<script type = 'text/javascript' src="js_v9/Hex.js"></script>
+		<script type = 'text/javascript' src="js_v9/Text.js"></script>
+		<script type = 'text/javascript' src="js_v9/comboTimer.js"></script>
+		<script type = 'text/javascript' src="js_v9/checking.js"></script>
+		<script type = 'text/javascript' src='js_v9/update.js'></script>
+		<script type = 'text/javascript' src='js_v9/render.js'></script>
+		<script type = 'text/javascript' src="js_v9/input.js"></script>
+		<script type = 'text/javascript' src="js_v9/main.js"></script>
+		<script type = 'text/javascript' src="js_v9/initialization.js"></script>
+		<script type = 'text/javascript' charset = 'utf-8' src = 'cordova.js'></script>
+    </head>
+	<body>
+
+		<canvas id="canvas"></canvas>
+		<div id='devtools' style='z-index:3;display:none;position:absolute;left:50%;width:400px;height:400px;top:50%;margin-top:-200px;margin-left:-200px;'>
+			<h2 id = 'clickToExit' style = 'background-color:#fff;color:#000'>Click to exit</h2>
+			<textarea id ='devtoolsText' style = 'height:300px;width:400px;'></textarea>
+		</div>
+		<div class="faded overlay"></div>
+	<!--	<div id="attributions">Started by <a href="http://github.com/teamsnowman" target="_blank">@teamsnowman</a> at <a href= 'http://www.hackexeter.com/' target="_blank">HackExeter</a><br>
+			Finished by <a href="http://github.com/meadowstream" target="_blank">Logan Engstrom</a> & <a href='http://github.com/garrettdreyfus' target="_blank">Garrett Finucane</a> on <a href = 'http://github.com/hextris/hextris' target="_blank">GitHub</a><br>
+		</div> -->
+		<div id='startBtn' style='position:absolute;left:40%;top:38%;height:25%;width:25%;z-index:99999999;cursor:pointer;'></div>
+		<div id="helpScreen" class = 'unselectable'>
+			<h1 class = 'instructions_body'> <br/> </h1>
+			<p class = 'instructions_body' id = 'inst_main_body'></p>
+		</div>
+		<div id="openSideBar" class = 'helpText'><i class="fa fa-info-circle fa-lg"></i> <i class="fa fa-arrow-left"><b> 玩法</b></i></div>
+		<div class="faded overlay"></div>
+		<div id = 'pauseBtn'><div id = 'pauseBtnInner'><i class="fa fa-pause fa-2x"></i></div></div>
+		<div id = 'restartBtn'><div id = 'restartBtnInner'><i class="fa fa-refresh fa-2x"></i></div></div>
+		<div id="bottombar">
+                   
+		</div>
+                        
+<script type="text/javascript">
+function hidead()
+{document.getElementById("ad").style.display="none";}
+</script>
+<div id="ad" style="position:absolute; z-index:1000; width:100%">
+<img src="images/ad_fundream_600.jpg" border="0" width="100%"/>
+<DIV onclick="hidead();" style="FONT-SIZE: 9pt; CURSOR: hand" align=right><font color="black" size="2">关闭公告×</font></DIV></div>
+<script>
+var x = 50,y = 60
+var xin = true, yin = true
+var step = 1
+var delay = 1
+var obj=document.getElementById("ad")
+function floatAD() {
+var L=T=0
+var R= document.body.clientWidth-obj.offsetWidth
+var B = document.body.clientHeight-obj.offsetHeight
+obj.style.left = x + document.body.scrollLeft
+obj.style.top = y + document.body.scrollTop
+x = x + step*(xin?1:-1)
+if (x < L) { xin = true; x = L}
+if (x > R){ xin = false; x = R}
+y = y + step*(yin?1:-1)
+if (y < T) { yin = true; y = T }
+if (y > B) { yin = false; y = B }
+}
+var itl= setInterval("floatAD()", delay)
+obj.onmouseover=function(){clearInterval(itl)}
+obj.onmouseout=function(){itl=setInterval("floatAD()", delay)}
+</script>
+<!--
+<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253362890'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1253362890' type='text/javascript'%3E%3C/script%3E"));</script></div> -->
+    </body>
+</html>

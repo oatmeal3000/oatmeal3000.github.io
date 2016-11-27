@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Freaking Math can make you freakinng mad!">
+<meta name="keywords" content="freaking,freak,math,fast,quick,math,brain,tuner,freak,second,one,freaking">
+<title>疯狂数学</title>
+<link rel="stylesheet" href="css/style.min.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+<script type="text/javascript" src="js/script.min.js"></script>
+<script src="js/json2.js" type="text/javascript"></script>
+<script src="js/geturl.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrapper">
+<div class="left phone">
+<img src="img/nexus.png" alt="" width="320">
+<div class="blackscreen">
+<div class="game">
+<div class="progress"></div>
+<button class="sound_btn"></button>
+<div class="score">0</div>
+<div class="math">
+<div class="mathA">
+<h1 class="addition">1+2</h1>
+<h1 class="result">=3</h1>
+</div>
+<div class="mathB">
+<h1 class="addition">999+999</h1>
+<h1 class="result">=2014</h1>
+</div>
+</div>
+<button class="true left"></button>
+<button class="false left"></button>
+<div class="clear"></div>
+<div class="gameover">
+<div class="board">
+<h1 class="score_new">9999</h1>
+<h1 class="score_best">9999</h1>
+</div>
+<button class="replay"></button>
+</div>
+<div class="launch">
+<div class="launch_logo"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="left content">
+<div class="logo">
+<img src="img/logo.png" alt="" width="360">
+</div>
+<div class="info">
+<p>游戏操作指南:
+	<p>-----方向"←键"选择正确<img src="img/true.png" alt="" width="20"></p>
+	<p>-----方向"→键"选择错误<img src="img/false.png" alt="" width="20"></p>
+	<p>-----方向"↑↓键"重新开始<img src="img/play.png" alt="" width="30"></p>
+	<i>*部分浏览器不能支持，不便之处敬请原谅！</i>
+</p>
+
+<div class="hackpanel">
+<div class="hack">
+始终正确:<div class="button" id="alwaystrue" onclick="HACK_ALWAYSTRUE();">否</div>
+</div>
+<div class="hack">
+<form>判断时间: <input type="number" id="time" style="width:60px;" value="1000"/>毫秒<div class="button" onclick="HACK_CHANGETIME();">确认</div></form>
+</div>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</body>
+</html>

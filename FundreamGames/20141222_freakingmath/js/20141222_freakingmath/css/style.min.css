@@ -1,0 +1,318 @@
+@font-face {
+	font-family: 'relay-boldregular';
+	src: url('../font/relay-bold-webfont.eot');
+	src: url('../font/relay-bold-webfont.eot?') format('embedded-opentype'),url('../font/relay-bold-webfont.woff') format('woff'),url('../font/relay-bold-webfont.ttf') format('truetype'),url('../font/relay-bold-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal
+}
+
+* {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	background-color: #2c3e50;
+	color: #ecf0f1;
+	font-family: Helvetica,Arial,'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-weight: 100;
+	font-size: 14px
+}
+
+.clear {
+	clear: both
+}
+
+.left {
+	float: left
+}
+
+.wrapper {
+	width: 800px;
+	height: 640px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0
+}
+
+ul li {
+	display: block;
+	float: left;
+	margin-left: 10px
+}
+
+ul {
+	margin-right: 10px
+}
+
+i {
+	font-size: 12px
+}
+
+.content {
+	width: 460px;
+	margin-top: 20px;
+	margin-right: 20px
+}
+
+.phone {
+	width: 320px
+}
+
+.info {
+	margin-bottom: 20px;
+	margin-left: 10px
+}
+
+.info p {
+	line-height: 1.3;
+	text-align: justify;
+	margin-bottom: 10px
+}
+
+.info b {
+	font-size: 16px
+}
+
+.logo {
+	margin-bottom: 10px
+}
+
+.social {
+	margin-top: 10px;
+	margin-left: 10px
+}
+
+.blackscreen {
+	background-color: #000;
+	height: 460px;
+	width: 260px;
+	position: absolute;
+	top: 96px;
+	left: 30px;
+	overflow: hidden
+}
+
+.game {
+	background-color: #e67e22;
+	height: 460px;
+	width: 260px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	font-family: 'relay-boldregular';
+	-webkit-transition: background .1s;
+	-moz-transition: background .1s;
+	-o-transition: background .1s;
+	transition: background .1s
+}
+
+.progress {
+	width: 260px;
+	height: 3px;
+	background-color: #FFF
+}
+
+.score {
+	width: 255px;
+	height: 20px;
+	color: #FFF;
+	font-size: 20px;
+	text-align: right;
+	margin-top: 5px
+}
+
+.sound_btn {
+	background: url('../img/sound_on.png') no-repeat;
+	background-size: cover;
+	height: 23px !important;
+	width: 20px !important;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer
+}
+
+.sound_btn_off {
+	background: url('../img/sound_off.png') no-repeat
+}
+
+.math {
+	margin-top: 90px;
+	font-size: 28px;
+	text-align: center;
+	height: 140px;
+	overflow: hidden
+}
+
+.mathA,.mathB {
+	width: 260px;
+	position: absolute
+}
+
+.mathA {
+	left: 0
+}
+
+.mathB {
+	left: 260px
+}
+
+.game button {
+	height: 120px;
+	width: 120px;
+	border: 0;
+	background-size: cover;
+	position: absolute;
+	bottom: 6px;
+	cursor: pointer
+}
+
+.game button:hover {
+	background-size: cover
+}
+
+.game button:focus {
+	border: 0;
+	outline: 0
+}
+
+.true {
+	background: url('../img/true.png') no-repeat transparent;
+	left: 7px
+}
+
+.true:hover,.true_hover {
+	background: url('../img/true_select.png') no-repeat transparent
+}
+
+.false {
+	background: url('../img/false.png') no-repeat transparent;
+	right: 7px
+}
+
+.false:hover,.false_hover {
+	background: url('../img/false_select.png') no-repeat transparent
+}
+
+.launch {
+	height: 460px;
+	width: 260px;
+	background-color: #2c3e50;
+	position: absolute;
+	top: 0;
+	left: 0
+}
+
+.launch_logo {
+	background: url('../img/logo.png') no-repeat;
+	background-size: cover;
+	height: 122px;
+	width: 200px;
+	margin: 50px auto
+}
+
+.gameover {
+	position: absolute;
+	top: -460px;
+	left: 0;
+	width: 260px;
+	height: 460px
+}
+
+.board {
+	background: url('../img/game_over_bg.png') no-repeat;
+	background-size: cover;
+	height: 168px;
+	width: 240px;
+	margin: 100px auto 0 auto
+}
+
+.board h1 {
+	margin-left: 120px;
+	font-size: 40px;
+	margin-top: 0;
+	color: #FFF
+}
+
+.score_new {
+	padding-top: 55px
+}
+
+.newbest {
+	color: #f1c40f !important
+}
+
+.replay {
+	background: url('../img/play.png') no-repeat;
+	height: 40px !important;
+	width: 80px !important;
+	position: relative !important;
+	margin-top: 10px;
+	margin-left: 90px
+}
+
+.replay:hover,.replay_hover {
+	background: url('../img/play_select.png') no-repeat
+}
+
+a {
+	font-size: 20px;
+	color: lightgrey;
+}
+
+a:active {
+	color: lightgrey;
+}
+
+a:visited {
+	color: lightgrey;
+}
+
+a:hover {
+	color: white !important;
+}
+
+.hackpanel {
+	height: 150px;
+	width: 350px;
+	border: 1px solid black;
+	border-radius: 5px;
+	background: #60778F; 
+	padding: 20px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.7) inset;
+	margin-bottom: 20px;
+	
+	font-family: monospace;
+	font-size: 18px;
+}
+
+.hack {
+	height: 50px;
+	margin: 10px;
+}
+
+.button {
+	margin-left: 20px;
+	padding: 4px;
+	border-radius: 3px;
+	box-shadow: 0 0 5px black;
+	color: black;
+	background: #FAFAFA;
+	display: inline-block;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.button:hover {
+	background: white;
+	box-shadow: 0 0 10px black;
+}
+
+.button:active {
+	box-shadow: 0 0 5px black inset;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Monster Wants Candy</title>
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+	<meta name="description" content="Monster Wants Candy" />
+	<style>
+		body { margin: 0; background: #B4D9E7; }
+		@font-face {
+			font-family: 'ComicBook';
+			src: url('fonts/comicbook.eot');
+			src: url('fonts/comicbook.eot?#iefix') format('embedded-opentype'),
+				url('fonts/comicbook.woff') format('woff'),
+				url('fonts/comicbook.ttf') format('truetype'),
+				url('fonts/comicbook.svg#comic_booknormal') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+	</style>
+	<script src="src/storage.js"></script>
+	<script src="src/phaser.min.js"></script>
+	<script src="src/Boot.js"></script>
+	<script src="src/Preloader.js"></script>
+	<script src="src/StoryHowto.js"></script>
+	<script src="src/Achievements.js"></script>
+	<script src="src/MainMenu.js"></script>
+	<script src="src/Game.js"></script>
+</head>
+<body>
+<script>
+(function(){
+	var game = new Phaser.Game(640, 960, Phaser.CANVAS, 'game');
+	game.state.add('Boot', Candy.Boot);
+	game.state.add('Preloader', Candy.Preloader);
+	game.state.add('StoryHowto', Candy.StoryHowto);
+	game.state.add('Achievements', Candy.Achievements);
+	game.state.add('MainMenu', Candy.MainMenu);
+	game.state.add('Game', Candy.Game);
+	game.state.start('Boot');
+})();
+</script>
+
+<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253362890'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1253362890' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body>
+</html>

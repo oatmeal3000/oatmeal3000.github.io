@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../common/touchop.xsl"?>
+<touchop>
+  <test domain="image"
+	win="img/quest12_result.gif"
+	exp="night ufo ToAlpha red feComp ufo ToAlpha (Blur grad feComp | grad feComp Blur) feComp feComp"/>
+
+  <def name="&#x2460;" xy="50,100"/>
+  <use name="&#x2460;" xy="50,200"/>
+  <use name="&#x2460;" xy="50,300"/>
+
+  <image xy="220,80" src="img/dgrad.svg"/>
+  <image xy="320,80" src="img/night.jpg"/>
+  <image xy="150,190" src="img/ufo.gif"/>
+
+  <image xy="250,190">
+    <feFlood flood-color="red"/>
+  </image>
+
+  <image name="Atop" xy="410,300">
+    <feComposite operator="atop" in="arg1" in2="arg2"/>
+  </image>
+
+  <image name="Atop" xy="470,200">
+    <feComposite operator="atop" in="arg1" in2="arg2"/>
+  </image>
+
+  <image name="Blur" xy="420,120">
+    <feGaussianBlur stdDeviation="5" in="arg1"/>
+  </image>
+
+  <image name="Atop" xy="350,200">
+    <feComposite operator="atop" in="arg1" in2="arg2"/>
+  </image>
+
+  <image name="Atop" xy="280,300">
+    <feComposite operator="atop" in="arg1" in2="arg2"/>
+  </image>
+
+  <image name="Mask" xy="150,300">
+    <feColorMatrix type="luminanceToAlpha" in="arg1"/>
+  </image>
+
+</touchop>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../common/touchop.xsl"?>
+<touchop>
+  <test domain="image" 
+	win="img/quest03_result.png" 
+	exp="smiley ToAlpha rgrad feComp"/>
+
+  <image name="Mask" xy="280,200">
+    <feColorMatrix type="luminanceToAlpha" in="arg1" result="tmp"/>
+    <feComponentTransfer in="tmp">
+        <feFuncA type="gamma" exponent="0.5"/>
+    </feComponentTransfer>
+  </image>
+
+  <image name="Atop" xy="150,200">
+    <feComposite operator="atop" in="arg1" in2="arg2"/>
+  </image>
+
+  <!-- base images -->
+  <image xy="150,100" src="img/rgrad.svg"/>
+  <image xy="280,100" src="img/smiley.png"/>
+
+</touchop>

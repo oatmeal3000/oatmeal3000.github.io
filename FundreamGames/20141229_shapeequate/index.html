@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- for iPad, the default initial scale of fit to screen in portrait mode was making shapes too big, 
+         and the zoom in/out, touch-scrollable area was in only the non-canvas part of the page,
+         which one would never know,... so we set width to give it a 15px border area where scrolling can be done -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <meta name="viewport" content="width=1030">
+    <title>Shape Equate - 给孩子的数学游戏，方锥网汉化</title>
+    
+    
+    <script charset="utf-8" src="js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/ShapeEquate.js"></script>
+    <!-- Load the Paper.js library -->
+    <script type="text/javascript" src="js/lib/paper.js"></script>
+    <!-- Load external PaperScript and associate it with myCanvas -->
+    <script type="text/paperscript" src="js/ShapeEquate.pjs" canvas="ShapeEquateCanvas"></script>
+    <link rel="stylesheet" href="ShapeEquate.css">
+    <!-- This is the favicon -->
+    <link rel="icon" href="favicon.ico">
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-29687236-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="title">
+            <span class="title">形状跷跷板</span>
+            <span class="rightMenu"><a href="javascript:ShapeEquate.toggleAbout()">说明</a></span>
+            <div id="about" style="display: none">
+        <!--        <a href="http://github.com/bsiegal/ShapeEquate"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>                -->
+                <div class="title">
+                    <h1>形状跷跷板</h1>
+                    给孩子的数学游戏 - by <a href="http://bsiegal.github.com/">Bess Siegal</a>
+                </div>
+                <h2>怎么玩</h2>
+                <ul>
+                    <li>点击选择一个形状 (或者把它拖到你的盘子里).</li>
+                    <li>一直往里面加形状直到天平平衡</li>
+                    <li>如果加的太多的话，点击盘子里的形状去掉它.</li>
+                    <li>天平平衡的时候你就能看到你创建的等式了!</li>
+                </ul>
+                <h2>等级</h2>
+                <ul>
+                    <li>初级 - 总数在1到20之间。</li>
+                    <li>中级 - 总数在20到40之间。</li>
+                    <li>高级 - 总数在40到60之间。</li>
+                    <li>
+                    挑战
+                    <ul>
+                        <li>任何形状只许一次 - 总数在1到55之间。</li>
+                        <li>只许一个形状多次 - 总数是一个乘积，2到60之间。</li>
+                    </ul>
+                    </li>
+                </ul>
+               
+            </div>            
+        </div>        
+        <div id="instruct">为你的盘子挑选各种形状让天平变平吧
+            <button id="clearPanBtn" onclick="ShapeEquate.clearPan();">清除</button>
+            <button id="newTotalBtn" onclick="ShapeEquate.newTotal();">新的总数</button>
+            <span class="rightMenu">等级: 
+            <select id="level" onchange="ShapeEquate.setLevel();">
+                <option value="0">初级</option>
+                <option value="1">中级</option>
+                <option value="2">高级</option>
+                <optgroup label="挑战">
+                    <option value="100">任何形状只许一次</option>
+                    <option value="200">只许一个形状多次</option>
+                </optgroup>
+            </select>
+            </span>
+        </div>
+        <canvas id="ShapeEquateCanvas" width="1000px" height="710px"></canvas>
+    </div>
+    <audio id="soundHandle" style="display: none;"></audio>
+
+    <div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253362890'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1253362890' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body>
+</html>

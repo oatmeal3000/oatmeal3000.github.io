@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+  body {
+
+//  background:-moz-radial-gradient(farthest-side, rgba(0,0,0,0) 90%, rgba(0,0,0,0.1) 150%) rgb(76,76,76);
+//  background:-webkit-gradient(radial, center center, 500, center center, 1400, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.2))) rgb(76,76,76);
+
+  overflow:hidden;
+  padding:0;
+  margin:0;
+  color: white;
+  background: black; 
+
+  font-family: 'Signika Negative', sans-serif;
+  }
+
+  a:link {text-decoration: none; color: black;}
+  a:visited {text-decoration: none; color: black;}
+  a:active {text-decoration: none; color: black;}
+  a:hover {text-decoration: underline;  color: black;}
+
+  #ViewContainer {
+  position: absolute;
+  display:none;
+  }
+
+
+  #Menu {
+  position: absolute;
+  z-index: 101;
+  display: none;
+  color: white;
+  left:50%;
+  margin-left: -25%;
+  top: 65%;
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  }
+
+  #Menu a {
+  color: white;
+  opacity: 0.5;
+  }
+
+  #Menu a:hover {
+  color: white;
+  opacity: .95;
+  text-decoration: none;
+  }
+
+
+  #MainMenu {
+  position: absolute;
+  font-weight: bold;
+  z-index: 101;
+  color: rgba(255,255,255,0.7);
+  top: 75%;
+  width: 95%;
+  left: 50%;
+  margin-left: -50%;
+  text-align:center;
+  font-size: 3em;
+  font-family: 'Montserrat', sans-serif;
+  }
+
+  #MainMenu a:hover {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  }
+  #MainMenu a {
+  color: rgba(255,255,255,0.3);
+  }
+
+
+  #TeamCredits {
+  position: absolute;
+  z-index: 101;
+  top: 30%;
+  width: 95%;
+  left: 50%;
+  margin-left: -38%;
+  text-align:center;
+  font-size: 1em;
+  display:none;
+  color: rgba(255,255,255,0.6);
+  }
+
+
+  .credit_link_hover a:hover {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  }
+  .credit_link a {  
+  color: rgba(255,255,255,0.6);
+  }
+
+  #TeamCredits div {
+  position: absolute;
+  }
+
+  #CreditsMarc {
+  left:94px;
+  }
+  #CreditsCedric {
+  left: 275px;
+  }
+  #CreditsFred {
+  left: 480px;
+  }
+  #CreditsJohan {
+  left: 662px;
+  }
+  #CreditsMaomi {
+  left: 845px;
+  }
+
+  #back {
+  font-family: 'Montserrat', sans-serif;
+  top: 180px;
+  width: 95%;
+  margin-left: -512px;
+  left: 50%;
+  font-size: 3em;
+  };
+
+  #TeamCredits_back {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  }
+
+  #Won, #Levels, #Splash, #Credit {
+  position:absolute;
+  z-index: 100;
+  display: none;
+  margin: 0 auto;
+  left:50%;
+  margin-left:-512px;
+  width: 75%;
+  }
+
+  #Splash {
+  display: block;
+  }
+
+  #BG {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  background: black;
+  }
+
+</style>
+
+<title>MIOP</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="js/osg-debug.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/game.js"></script>
+<script type="text/javascript" src="js/geom.js"></script>
+<script type="text/javascript" src="js/filter.js"></script>
+<script type="text/javascript" src="js/skybox.js"></script>
+</head>
+
+<body>
+  <div id="Menu">
+    <a href="#" onClick="mainUpdate.initLevel('Level 1');">Level 1</a> -
+    <a href="#" onClick="mainUpdate.initLevel('Level 2');">Level 2</a> -
+    <a href="#" onClick="mainUpdate.initLevel('Level 3');">Level 3</a>
+  </div>
+
+  <div id="MainMenu">
+    <a href="#" onClick="startGamePage();">开始</a><br/>
+    <a href="#" onClick="creditsPage();"><small>制作人员</small></a>
+  </div>
+
+  <div id="TeamCredits" class="credit_link credit_link_hover">
+  <div id="CreditsMarc">
+    Code<br>
+    Marc Planard<br>
+    <a href="https://twitter.com/#!/corpsmoderne" >@corpsmoderne</a>
+  </div>
+
+  <div id="CreditsCedric">
+    Code<br>
+    Cedric Pinson<br>
+    <a href="https://cedricpinson.com" >cedricpinson.com</a><br>
+    <a href="https://twitter.com/#!/trigrou" >@trigrou</a>
+  </div>
+
+  <div id="CreditsFred">
+    Sounds<br>
+    Frédéric Sommer<br>
+    <a href="https://www.lecortex.com" >www.lecortex.com</a>
+  </div>
+
+  <div id="CreditsJohan">
+    3D artist<br>
+    Johan Spielmann<br>
+    <a href="https://twitter.com/#!/lecortex" >@lecortex</a>
+  </div>
+
+  <div id="CreditsMaomi">
+    Design<br>
+    Chen Zou<br>
+    <a href="https://twitter.com/#!/maomi" >@maomi</a>
+  </div>
+
+  <div id="back">
+    <br/><a href="#" onClick="goToMainMenu();">返回</a>
+  </div>
+  </div>
+
+
+<div id="BG"></div>
+<img id="Splash" src="menu.jpg" />
+<img id="Levels" src="data/levels.jpg" style="height:100%"/>
+<img id="Won" src="data/won.jpg"/>
+<img id="Credit" src="data/credit2.jpg"/>
+
+  <div id="ViewContainer">
+  <canvas id="3DView"></canvas>
+  </div>
+
+
+  <audio id="Track01" autoplay="autoplay" loop="loop">
+    <source src="music/ogg/Classical Way Menu.ogg" />
+  </audio>
+  <audio id="Track02" loop="loop">
+    <source src="music/ogg/Classical Way.ogg" />
+  </audio>
+  <audio id="WonMusic" >
+    <source src="music/ogg/Win.ogg" />
+  </audio>
+
+  <audio id="MonstreNote01">
+    <source src="music/ogg/MonstreNote01.ogg" />
+  </audio>
+  <audio id="MonstreNote02">
+    <source src="music/ogg/MonstreNote02.ogg" />
+  </audio>
+  <audio id="MonstreNote03">
+    <source src="music/ogg/MonstreNote03.ogg" />
+  </audio>
+  <audio id="MonstreNote04">
+    <source src="music/ogg/MonstreNote04.ogg" />
+  </audio>
+  <audio id="MonstreNote05">
+    <source src="music/ogg/MonstreNote05.ogg" />
+  </audio>
+  <audio id="MonstreNote06">
+    <source src="music/ogg/MonstreNote06.ogg" />
+  </audio>
+  <audio id="MonstreNote07">
+    <source src="music/ogg/MonstreNote07.ogg" />
+  </audio>
+  <audio id="MonstreNote08">
+    <source src="music/ogg/MonstreNote08.ogg" />
+  </audio>
+  <audio id="MonstreNote09">
+    <source src="music/ogg/MonstreNote09.ogg" />
+  </audio>
+  <audio id="MonstreNote10">
+    <source src="music/ogg/MonstreNote10.ogg" />
+  </audio>
+  <audio id="MonstreNote11">
+    <source src="music/ogg/MonstreNote11.ogg" />
+  </audio>
+
+
+  <audio id="MonstreRire01">
+    <source src="music/ogg/MonstreRire01.ogg" />
+  </audio>
+  <audio id="MonstreRire02">
+    <source src="music/ogg/MonstreRire02.ogg" />
+  </audio>
+  <audio id="MonstreRire03">
+    <source src="music/ogg/MonstreRire03.ogg" />
+  </audio>
+  <audio id="MonstreRire04">
+    <source src="music/ogg/MonstreRire04.ogg" />
+  </audio>
+  <audio id="MonstreRire05">
+    <source src="music/ogg/MonstreRire05.ogg" />
+  </audio>
+  <audio id="MonstreRire06">
+    <source src="music/ogg/MonstreRire06.ogg" />
+  </audio>
+  <audio id="MonstreRire07">
+    <source src="music/ogg/MonstreRire07.ogg" />
+  </audio>
+  <audio id="MonstreRire08">
+    <source src="music/ogg/MonstreRire08.ogg" />
+  </audio>
+  <audio id="MonstreRire09">
+    <source src="music/ogg/MonstreRire09.ogg" />
+  </audio>
+
+  <audio id="MonstreExplosionMini">
+    <source src="music/ogg/MonstreExplosionMini.ogg" />
+  </audio>
+  <audio id="MonstreExplosionMoyen">
+    <source src="music/ogg/MonstreExplosionMoyen.ogg" />
+  </audio>
+  <audio id="MonstreExplosionMaxi">
+    <source src="music/ogg/MonstreExplosionMaxi.ogg" />
+  </audio>
+
+
+  <audio id="Ahhh">
+    <source src="music/ogg/cercle_moyen.ogg" />
+  </audio>
+
+
+
+
+<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253362890'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1253362890' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body>
+
+</html>

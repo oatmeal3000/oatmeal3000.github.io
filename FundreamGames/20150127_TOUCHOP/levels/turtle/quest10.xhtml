@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="../../common/touchop.xsl"?>
+<touchop>
+  <test domain="turtle"/>
+  <canvas plot="y" xy="50,100" size="180" xmin="-2" xmax="3" ymin="-3" ymax="2">
+   <point x="1.90333" y="0.61667"/>
+  <point x="2.49000" y="-0.19000"/>
+  <point x="2.12667" y="-1.31000"/>
+  <point x="1.54000" y="-2.11667"/>
+  <point x="0.36333" y="-2.11667"/>
+  <point x="-0.58667" y="-1.81000"/>
+  <point x="-0.95000" y="-0.69000"/>
+   <point x="-0.95000" y="0.31000"/>
+   <point x="-0.00000" y="1.00000"/>
+   <point x="0.95000" y="1.31000"/>
+    <turtle/>
+  </canvas>
+  <program def="true" name="H" xy="370,90">
+    <step/>
+    <step/>
+  </program>
+  <program xy="440,130">
+    <push/>
+    <step/>
+    <step/>
+    <pop/>
+  </program>
+  <program name="5&#215;" repeat="5" xy="260,50">
+    <step/>
+    <step/>
+  </program>
+  <move value="rotate(72)" img="#half-right" xy="260,280"/>
+  <move value="translate(180.0/5,0)" img="#move-forward" xy="260,200"/>
+  <move value="translate(180.0/5,0)" img="#move-forward" xy="340,280"/>
+  <use name="H" xy="500,280"/>
+  <use name="H" xy="420,280"/>
+</touchop>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Freaking Math</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		
+		<link rel="stylesheet" href="css/vendor/jqmobile_flatui/jquery.mobile.flatui.min.css" />
+		<link rel="stylesheet" href="css/vendor/reset.css" />
+		<link rel="stylesheet" href="css/vendor.css" />
+		<link rel="stylesheet" href="css/style.css" />
+
+		<script data-main="js/app" src="js/require.js"></script>
+	</head>
+	<body>
+		
+		<div data-role="page" id="start-page" class="page" data-dom-cache="false">
+			<div data-role="content" id="start-page-content" class="content">
+			</div>
+		</div>
+		<div data-role="page" id="game-page" class="page" data-dom-cache="false">
+			<div data-role="content" id="game-page-content" class="content">
+			</div>
+		</div>
+		<div data-role="page" id="end-page" class="page" data-dom-cache="false">
+			<div data-role="content" id="end-page-content" class="content">
+			</div>
+		</div>
+		
+		<script type="text/template" id="start-page-template">
+			<div class="outer-center disable-select">
+				<div class="inner-center">
+					<img src="img/logo.png" width="250" style="margin-top: 60px"/>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="outer-center disable-select">
+				<div class="inner-center">
+					<a id="start-game-action" data-prefetch="true">
+						<img src="img/play.png" width="100" style="margin-top: 32px" />
+					</a>
+				</div>
+			</div>
+		</script>
+		
+		<script type="text/template" id="game-page-template">
+			<div id="game-timer-bar" style="width: 100%; height: 10px; background-color: white"></div>
+			<span style="float:right; font-size: 26px"><%=level%></span>
+			<div class="clear"/>
+			<div class="outer-center disable-select">
+				<div class="inner-center" style="font-size: 60px; margin-top: 64px">
+					<div>
+						<%=operand1%><%=operator%><%=operand2%>
+					</div>
+					<div>
+						=<%=result%>
+					</div>
+				</div>
+			</div>
+			<div class="clear"/>
+			<div style="position: fixed; bottom: 0; width: 100%;">
+				<img id="true-action" src="img/true.png" style="width: 50%; height: auto; float: left;" />
+				<img id="false-action" src="img/false.png" style="width: 50%; height: auto;" />
+			</div>
+			<div class="clear"/>
+		</script>
+		
+		<script type="text/template" id="end-page-template">
+			<div class="outer-center disable-select">
+				<div class="inner-center" style="font-size: 40px; margin-top: 60px">
+					<div>游戏结束</div>
+				</div>
+			</div>
+			<div class="clear"/>
+			<div class="outer-center disable-select">
+				<div class="inner-center" style="font-size: 20px; margin-top: 20px">
+					<div>
+						本次成绩 <%=newScore%>
+					</div>
+					<div style="margin-top: 10px">
+						最好成绩 <%=bestScore%>
+					</div>
+				</div>
+			</div>
+			<div class="clear"/>
+			<div class="outer-center disable-select">
+				<div class="inner-center" style="font-size: 32px; margin-top: 24px">
+					<div style="margin-top: 10px">
+						<img id="end-game-play-action" src="img/play.png" width="100"/>
+					</div>
+				</div>
+			</div>
+			<div class="clear"/>
+		</script>
+		
+<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253362890'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1253362890' type='text/javascript'%3E%3C/script%3E"));</script></div>
+	</body>
+</html>

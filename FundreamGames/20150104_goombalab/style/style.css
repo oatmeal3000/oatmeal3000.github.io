@@ -1,0 +1,196 @@
+body {
+      background: black;
+      text-align: center;
+      color: #DDD;
+      font-family: Arial;
+    }
+
+    .controls {
+      color: #BBB;
+      width: 800px;
+      margin: 0 auto 80px;
+    }
+
+    #cr-stage { 
+      
+      }
+
+    .bottom {
+      font-size: 12px;
+      color: #888;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+
+    .bottom a {
+      color: #AAA;
+    }
+    
+    #editorFrame {
+      width: 936px;
+      margin: 0 auto;
+    }
+    
+    #editorFrame ul {
+      list-style: none;
+    }
+
+    #editorFrame > ul {
+      width: 896px;
+    }
+    
+      .editor-panel {
+        background: url('../assets/sidebar.png') no-repeat 0 0;
+        float: left;
+        width : 128px;
+        height: 496px;
+        font-family: arial;
+        font-size: 10px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+		.editor-panel .note-button {
+			width: 128px;
+			height: 64px;
+		}
+        
+        .editor-panel #goButton,
+ 		.editor-panel #pauseButton,
+		.editor-panel #resetSimulationButton,
+		.editor-panel #reloadLevelButton {
+          width:64px;
+          height:64px;
+		  float:left;
+        }
+
+		.editor-panel #goButton {
+			background:url('../assets/t_gui_goA_normal.png') no-repeat 0 0 ;
+		}
+		
+		.editor-panel #goButton:hover {
+			background:url('../assets/t_gui_goA_hover.png') no-repeat 0 0 ;
+		}
+		
+		.editor-panel #pauseButton {
+			background:url('../assets/t_gui_pauseA_normal.png') no-repeat 0 0 ;
+		}
+		
+		.editor-panel #pauseButton:hover {
+			background:url('../assets/t_gui_pauseA_hover.png') no-repeat 0 0 ;
+		}
+		
+		.editor-panel #resetSimulationButton {
+			background:url('../assets/t_gui_rewindA_normal.png') no-repeat 0 0 ;
+		}
+		
+		.editor-panel #resetSimulationButton:hover {
+			background:url('../assets/t_gui_rewindA_hover.png') no-repeat 0 0 ;
+		}
+		
+		.editor-panel #reloadLevelButton {
+			background:url('../assets/t_gui_restartA_normal.png') no-repeat 0 0 ;
+		}
+		
+		.editor-panel #reloadLevelButton:hover {
+			background:url('../assets/t_gui_restartA_hover.png') no-repeat 0 0 ;
+		}
+    
+        .editor-panel .hiddenArrow {
+          visibility: hidden;
+          /*background-color:white;*/
+        }
+        
+        .editor-panel #tileList,
+ 		.editor-panel #tileListLocked {
+          padding: 0px;
+        }
+        
+        .editor-panel #tileList .tile,
+ 		.editor-panel #tileListLocked .tile {
+          width:64px;
+          height:96px;
+          color: black;
+          padding: 0 16px;
+		  margin: 0 auto;
+		  font-size: 12px;
+        }
+
+		.editor-panel #tileList .emptyTile,
+		.editor-panel #tileListLocked .emptyTile {
+			padding: 0 16px;
+			margin: 0 auto;
+			width:64px; 
+	        height:96px;
+		}
+
+		.editor-panel #tileList .selected {
+          /*background: url('../assets/border.png') no-repeat 0 0;*/
+        }
+        
+        .editor-panel #tileList li:hover {
+          /*background: url('../assets/border.png') no-repeat 0 0;*/
+        }
+        
+        .editor-panel #tileList li .icon,
+		.editor-panel #tileListLocked li .icon{
+          width:64px;
+          height:64px;
+          padding-top: 15px;
+        }
+
+		#notePanel {
+			margin-top:-432px;
+			width : 900px;
+	        height: 432px;
+			display:none;
+			z-index:1000;
+		}
+		
+			#notePanel textarea {
+				width : 900px;
+		        height: 432px;
+				z-index:1001;
+			}
+
+.live_map_editor {
+  width: 212px; 
+  margin: 0 auto;
+}
+
+.live_map_editor textarea {
+  font-size: 28px;
+  font-family: monospace;
+  /*width: 8em;*/
+  width: 212px;
+  display: block;
+  height: 260px;
+  margin: 0 auto;
+}
+
+.live_map_editor button {
+  width: 12em;
+  margin: 10px auto;
+  display: block;
+  font-size: 16px;
+}
+
+.level_editor_legend {
+  list-style: none;
+  width: 300px;
+  margin: 10px auto 0;
+}
+
+.level_editor_legend > li {
+  text-align: left;
+  text-indent: 24px;
+}
+
+.level_editor_legend > li label {
+  font-weight: bold;
+  margin-right: 0.6em;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../../common/touchop.xsl"?>
+<touchop>
+  <test domain="image" 
+	win="img/quest01_result.png" 
+	exp="triangle circle atop"/>
+
+  <image name="Atop" xy="100,200">
+    <feComposite operator="atop" in="arg1" in2="arg2"/>
+  </image>
+
+  <!-- base images -->
+  <image xy="250,200" src="img/triangle.svg"/>
+  <image xy="380,200" src="img/circle.svg"/>
+
+</touchop>
