@@ -482,7 +482,8 @@ a {
   width: 100%;
 }
 #header a {
-  color: #363636;
+  color: #666;
+  font-weight: bold;
 }
 #header a:hover {
   color: #b0a0aa;
